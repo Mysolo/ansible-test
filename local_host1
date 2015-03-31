@@ -1,0 +1,11 @@
+[local]
+localhost ansible_connection=local ansible_python_interpreter=python2
+
+[all:vars]
+#exec_user=["exec_user1","exec_user2"]
+exec_user=["exec_user2"]
+
+
+
+[local:vars]
+user_list=exec_user
