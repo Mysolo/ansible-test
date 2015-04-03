@@ -1,0 +1,23 @@
+- name: user configuration
+  hosts: all
+
+  vars:
+    user_list_name: "{{ hostvars[inventory_hostname][user_list] }}"
+
+#  user:
+#    - name: exec_user1
+#      login: exec_user1
+#      uid: 2000
+  
+#    - name: exec_user2
+#      login: exec_user2
+#      uid: 2001
+    item_test: 2  
+  tasks:
+    - debug: var=user_list
+    - debug: var=user_list_name
+    - debug: var=users
+    - debug: msg="get login is {{ users[item].login }} and uid is {{ users[item].uid }} "
+    #- debug: msg="get user is {{ users[item].uid }}"
+    #- debug: var=users.{{item}}.uid
+      with_items: user_list_name
